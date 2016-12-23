@@ -28,7 +28,10 @@ cd data
 for d in $(for a in $(ls -d -- */); do echo $a; done); do (cd `echo $d`; for f in $(ls *.gz); do gunzip -c $f > ../../textfiles/`echo $(echo $f | sed s-./--) | sed s-.gz-.txt-`; done; cd ..); done 
 cd ../textfiles
 ##this line appends the contents of each text file into a single file: gigaword/gigaword.txt. Note that it strips out any non-ascii characters as it does this. (there are a few funky characters throughout gigaword, and leaving them in causes problems for some programs you may want to train on this data.)
-cat *.txt | tr -cd '\11\12\15\40-\176' >> ../gigaword.txt
+## cat *.txt | tr -cd '\11\12\15\40-\176' >> ../gigaword.txt
+##this line appends the contents of each text file into a single file: gigaword/gigaword.txt.
+cat *.txt >> ../gigaword.txt
+
 ##note that at this point we essentially have the data in 3 places-- the original .gz files (gigaword/data/*_eng/*.gz), the uncompressed .txt files (gigaword/textfiles/*.txt), and the final gigaword/gigaword.txt file, so we may want to remove the uncompiled .gz and .txt files. The remaining lines would accomplish this; uncomment them if you want to delete the extra data to free up disk space.
 cd ..
 #rm -r data
