@@ -29,9 +29,7 @@ name = ''
 
 with open(srcFile) as src, open(trgFile) as trg: 
     for ss, ts in izip(src, trg):
-	print ss
  	if patternIni.match(ss):
-	     print ss
  	     if i>10000:
  	        fileBase = folder+'/'+str(i)+'_'+name
 		print fileBase
