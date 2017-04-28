@@ -19,11 +19,11 @@ sourceSentences = ''
 targetSentences = ''
 i = 10000  #so that they are listed in the same order
 
-patternIni = re.compile("^\s*<url>(.+)</url>\s*$")
-patternTitle = re.compile("^<title>(.+)</title>$")
-patternIDde = re.compile("^<talkid>(\d+)</talkid>$")
+patternIni = re.compile("^<url>(.+)</url>")
+patternTitle = re.compile("^\s*<title>(.+)</title>$")
+patternIDde = re.compile("^\s*<talkid>(\d+)</talkid>$")
 patternID = re.compile("^\s*<doc docid=\"(\d+)\"\s")
-patternDesc = re.compile("^<description>(.+)</description>$")
+patternDesc = re.compile("^\s*<description>(.+)</description>$")
 #patternText = re.compile("^(?!<)\w+$")
 name = ''
 
@@ -37,6 +37,8 @@ with open(srcFile) as src, open(trgFile) as trg:
                   fs.write(sourceSentences)
 	        with open(fileBase+trgLang,'wb') as ft:
    	          ft.write(targetSentences)
+		sourceSentences = ''
+		targetSentences = ''
 	     i += 1
 	elif patternID.match(ss): 
 	     name = patternID.match(ss).group(1)
