@@ -33,7 +33,7 @@ def main(inF, lan):
                   count = count + 1
            except:
              print(line)
-       print(count + ' sentences discarded')
+       print(str(count) + ' sentences discarded')
     fOUT.close() 
 
 
