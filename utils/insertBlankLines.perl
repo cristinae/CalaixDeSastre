@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 ###############################################################################
+# ACHTUNG! Not working for consecutive lines
 # Purpose: Inserting black lines into a file. The position to insert the blanks
 #          is listed in a text file
 # Author:  Cristina
